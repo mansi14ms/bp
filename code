@@ -1,0 +1,44 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    String st=sc.next();
+	    int i,f=0;
+	    int n=st.length();
+	    Stack<Character> list=new Stack<Character>();
+	    for(i=0;i<n;i++)
+	    {
+	        char ch=st.charAt(i);
+	        
+	        if((ch=='(')||(ch=='{')||(ch=='['))
+	       { list.push(ch);
+	      
+	      }
+	        else
+	        { 
+	            char chr=list.peek();
+	            if((ch==')')&&(chr=='('))
+	            list.pop();
+	           else if((ch=='}')&&(chr=='{'))
+	            list.pop();
+	           else if((ch==']')&&(chr=='['))
+	            list.pop();
+	            else
+	            {
+	                f=1;
+	                break;
+	                
+	            }
+	            
+	            
+	            
+	        }
+	        
+	    }
+	    if(f==0)
+	    System.out.println("yes");
+	    else
+	    System.out.println("no");
+	}
+}
